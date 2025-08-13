@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umamahesh Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+      margin-bottom: 2em;
+    }
+
+    .radio-option {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"]:checked + label {
+      background-color: #004080;
+    }
+
+    .radio-option:hover {
+      background-color: #005fa3;
+    }
+
+    .content {
+      background-color: white;
+      padding: 1em;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.5s ease;
+    }
+
+    .content.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Umamahesh's Portfolio! 🎓</h1>
+
+  <div class="radio-group" id="radioContainer">
+    <input type="radio" name="section" id="contact" onclick="showContent('contact')">
+    <label for="contact" class="radio-option">Contact</label>
+
+    <input type="radio" name="section" id="linkedin" onclick="showContent('linkedin')">
+    <label for="linkedin" class="radio-option">LinkedIn</label>
+
+    <input type="radio" name="section" id="Leet Code" onclick="showContent('Leet Code')">
+    <label for="Leet Code" class="radio-option">Leet Code</label>
+
+    <input type="radio" name="section" id="objective" onclick="showContent('objective')">
+    <label for="objective" class="radio-option">Career Objective</label>
+
+    <input type="radio" name="section" id="ssc" onclick="showContent('ssc')">
+    <label for="ssc" class="radio-option">SSC</label>
+
+    <input type="radio" name="section" id="intermediate" onclick="showContent('intermediate')">
+    <label for="intermediate" class="radio-option">Intermediate</label>
+
+    <input type="radio" name="section" id="btech" onclick="showContent('btech')">
+    <label for="btech" class="radio-option">B-Tech</label>
+
+    <input type="radio" name="section" id="skills" onclick="showContent('skills')">
+    <label for="skills" class="radio-option">Programming Skills</label>
+
+    <input type="radio" name="section" id="technologies" onclick="showContent('technologies')">
+    <label for="technologies" class="radio-option">Technologies & Tools</label>
+
+    <input type="radio" name="section" id="academic" onclick="showContent('academic')">
+    <label for="academic" class="radio-option">Academic Project</label>
+
+    <input type="radio" name="section" id="internship" onclick="showContent('internship')">
+    <label for="internship" class="radio-option">Internship</label>
+
+    <input type="radio" name="section" id="achievements" onclick="showContent('achievements')">
+    <label for="achievements" class="radio-option">Achievements</label>
+
+    <input type="radio" name="section" id="extracurricular" onclick="showContent('extracurricular')">
+    <label for="extracurricular" class="radio-option">Extracurricular</label>
+  </div>
+
+  <div class="content" id="displayArea">
+    <p>Select a section to view details.</p>
+  </div>
+
+  <script>
+    const data = {
+      contact: `
+        <strong>Name:</strong> Umamahesh Vooribindi<br>
+        <strong>Phone:</strong> +91-9391481461<br>
+        <strong>Email:</strong> Umamaheshroyal00@gmail.com
+      `,
+      linkedin: `
+        <strong>LinkedIn Profile:</strong> 
+        <a href="https://www.linkedin.com/in/umamahesh-vooribindi" target="_blank">
+          www.linkedin.com/in/umamahesh-vooribindi
+        </a>
+      `,
+      portfolio: `
+        <strong>Portfolio:</strong> 
+        <a href="https://leetcode.com/u/umamahesh02/" target="_blank">
+          LeetCode Profile
+        </a>
+      `,
+      objective: `
+        Enthusiastic final-year B.Tech student in Electrical and Communication Engineering with strong skills in Python. 
+        Eager to begin a career in the IT industry, contributing to software development and problem-solving while continuously learning and growing.
+      `,
+      ssc: `
+        <strong>SSC:</strong><br>
+        Institution: ZPHS Puthalapattu<br>
+        Year: 2020<br>
+        CGPA: 9.2
+      `,
+      intermediate: `
+        <strong>Intermediate:</strong><br>
+        Institution: Sri Chaithanya Junior College<br>
+        Year: 2020–2022<br>
+        Percentage: 84.4%
+      `,
+      btech: `
+        <strong>B.Tech in ECE:</strong><br>
+        Institution: Vemu Institute of Technology, JNTU Ananthapuramu<br>
+        Year: 2022–2026<br>
+        Percentage: 78%
+      `,
+      skills: `
+        <strong>Programming Languages:</strong><br>
+        - HTML<br>
+        - CSS<br>
+        - Python<br>
+        - Basics of C and Java
+      `,
+      technologies: `
+        <strong>Technologies & Tools:</strong><br>
+        - VLSI Physical Design<br>
+        - Embedded Systems<br>
+        - MS Office (Word, PowerPoint)<br>
+        - VS Code
+      `,
+      academic: `
+        <strong>Academic Project:</strong><br>
+        IoT-based Industrial Environment Monitoring System<br>
+        Technologies: Python, Arduino, Ultrasonic Sensor, DHT11 Sensor
+      `,
+      internship: `
+        <strong>Internship:</strong><br>
+        Role: VLSI Designer<br>
+        Responsibilities: Physical Designing, Floor Planning
+      `,
+      achievements: `
+        <strong>Achievements:</strong><br>
+        - Certificate in PCB Design<br>
+        - Basics of Python<br>
+        - Basics of Java
+      `,
+      extracurricular: `
+        <strong>Extracurricular Activities:</strong><br>
+        - Workshop on Python Basics<br>
+        - Workshop on PCB Design & Fabrication
+      `
+    };
+
+    function showContent(section) {
+      const display = document.getElementById('displayArea');
+      display.classList.remove('show');
+      setTimeout(() => {
+        display.innerHTML = data[section] || '<p>Select a section to view details.</p>';
+        display.classList.add('show');
+      }, 100);
+    }
+  </script>
+</body>
+</html>
+
